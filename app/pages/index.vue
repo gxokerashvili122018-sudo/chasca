@@ -26,7 +26,7 @@ const photo = (id: string, width = 1000) => `https://images.unsplash.com/${id}?a
         <p class="script welcome-script">A little taste of nature</p>
         <h1>CHASCA</h1>
         <div class="divider"><span></span><b>RESERVE A TABLE</b><span></span></div>
-        <a class="button" href="/reservation">BOOK NOW</a>
+        <a class="button" href="/demo-contact">BOOK NOW</a>
       </div>
       <a href="#story" class="scroll-cue" aria-label="Scroll to our story">⌄</a>
     </section>
