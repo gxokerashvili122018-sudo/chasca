@@ -3,6 +3,11 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  runtimeConfig: {
+    resendApiKey: process.env.RESEND_KEY,
+    contactEmail: process.env.EMAIL_TO || 'hello@thehalia.com',
+    resendFrom: process.env.EMAIL_FROM || 'onboarding@resend.dev',
+  },
   app: {
     head: {
       link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
