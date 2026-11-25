@@ -3,40 +3,40 @@
     <ChascaHeader />
 
     <section class="menu-hero">
-      <p class="menu-script">From our garden to your table</p>
-      <h1>OUR MENU</h1>
-      <p>Seasonal ingredients, thoughtful cooking, and a little ginger in everything we do.</p>
+      <p class="menu-script">De nuestro huerto a tu mesa</p>
+      <h1>NUESTRA CARTA</h1>
+      <p>Ingredientes de temporada, cocina cuidada y un toque de jengibre en todo lo que hacemos.</p>
     </section>
 
     <section class="menu-content">
       <div class="menu-intro">
         <span class="menu-flourish">✳</span>
-        <h2>GOOD FOOD, GOOD COMPANY</h2>
-        <p>Inspired by the lush gardens around us, our kitchen brings fresh ingredients and bright, considered flavours to the table. Our menu changes with the seasons, so there is always something new to discover.</p>
+        <h2>BUENA COMIDA, BUENA COMPAÑÍA</h2>
+        <p>Inspirada en los jardines que nos rodean, nuestra cocina lleva a la mesa ingredientes frescos y sabores llenos de matices. La carta cambia con cada temporada para que siempre haya algo nuevo por descubrir.</p>
       </div>
       <div class="menu-categories">
         <article>
           <span>01</span>
-          <h3>À LA CARTE</h3>
-          <p>Explore a selection of dishes made for sharing, leisurely lunches, and dinners among the garden greenery.</p>
+          <h3>A LA CARTA</h3>
+          <p>Descubre platos para compartir, disfrutar de almuerzos sin prisa y cenar rodeado de naturaleza.</p>
         </article>
         <article>
           <span>02</span>
-          <h3>SET MENUS</h3>
-          <p>Gather around the table and let the kitchen guide you through a seasonal selection of Chasca favourites.</p>
+          <h3>MENÚS</h3>
+          <p>Reúnete alrededor de la mesa y deja que nuestra cocina te sorprenda con una selección de temporada.</p>
         </article>
         <article>
           <span>03</span>
-          <h3>DRINKS</h3>
-          <p>Find a refreshing companion for your meal, from garden-inspired sips to classic pours.</p>
+          <h3>BEBIDAS</h3>
+          <p>Acompaña tu comida con algo refrescante, desde bebidas inspiradas en el jardín hasta clásicos de siempre.</p>
         </article>
       </div>
-      <p class="menu-note">For current dishes, prices, or dietary information, please get in touch with our team.</p>
-      <a class="menu-contact" href="mailto:hello@thehalia.com?subject=Halia%20menu%20enquiry">ASK US ABOUT THE MENU <span>↗</span></a>
-      <a class="menu-reserve" href="/reservation">RESERVE A TABLE</a>
+      <p class="menu-note">Para consultar los platos, precios o información sobre alérgenos, ponte en contacto con nuestro equipo.</p>
+      <a class="menu-contact" href="mailto:chasca.jadraque.demo@gmail.com?subject=Consulta%20sobre%20la%20carta">PREGÚNTANOS POR LA CARTA <span>↗</span></a>
+      <a class="menu-reserve" href="/reservation">RESERVA TU MESA</a>
     </section>
 
-    <footer class="menu-footer"><a href="/#home">BACK TO CHASCA</a><span>1 Cluny Road, Ginger Garden, Singapore Botanic Gardens</span></footer>
+    <footer class="menu-footer"><a href="/#home">VOLVER A CHASCA</a><span>C. Mayor Alta, 2, 19240 Jadraque, Guadalajara</span></footer>
   </main>
 </template>
 

@@ -6,19 +6,19 @@ const now = new Date()
 const minDate = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`
 
 function sendRequest() {
-  const subject = `Table reservation request — ${details.name}`
+  const subject = `Solicitud de reserva — ${details.name}`
   const body = [
-    'Hello Chasca, I would like to request a table reservation.',
+    'Hola, Chasca. Quisiera solicitar una reserva.',
     '',
-    `Name: ${details.name}`,
-    `Phone: ${details.phone}`,
-    `Email: ${details.email}`,
-    `Date: ${details.date}`,
-    `Time: ${details.time}`,
-    `Guests: ${details.guests}`,
-    `Notes: ${details.notes || 'None'}`,
+    `Nombre: ${details.name}`,
+    `Teléfono: ${details.phone}`,
+    `Correo: ${details.email}`,
+    `Fecha: ${details.date}`,
+    `Hora: ${details.time}`,
+    `Comensales: ${details.guests}`,
+    `Notas: ${details.notes || 'Ninguna'}`,
     '',
-    'Please reply to confirm availability.',
+    'Por favor, confirmad la disponibilidad.',
   ].join('\n')
 
   window.location.href = `mailto:hello@thehalia.com?subject=${encodeURIComponent(subject)}&cc=${encodeURIComponent(details.email)}&body=${encodeURIComponent(body)}`
@@ -29,28 +29,28 @@ function sendRequest() {
   <main class="reservation-page">
     <ChascaHeader />
     <section class="reservation-card">
-      <p class="reservation-script">A place at our table</p>
-      <h1>MAKE A RESERVATION</h1>
-      <p class="reservation-intro">Share a few details and we’ll get back to you to confirm your table.</p>
+      <p class="reservation-script">Un lugar en nuestra mesa</p>
+      <h1>RESERVA TU MESA</h1>
+      <p class="reservation-intro">Déjanos tus datos y nos pondremos en contacto contigo para confirmar la reserva.</p>
 
       <form class="reservation-form" @submit.prevent="sendRequest">
-        <label>Your name<input v-model.trim="details.name" autocomplete="name" required /></label>
-        <label>Phone number<input v-model.trim="details.phone" type="tel" autocomplete="tel" required /></label>
-        <label>Email for our reply<input v-model.trim="details.email" type="email" autocomplete="email" required /></label>
+        <label>Tu nombre<input v-model.trim="details.name" autocomplete="name" required /></label>
+        <label>Número de teléfono<input v-model.trim="details.phone" type="tel" autocomplete="tel" required /></label>
+        <label>Correo electrónico<input v-model.trim="details.email" type="email" autocomplete="email" required /></label>
         <div class="reservation-row">
-          <label>Date<input v-model="details.date" type="date" :min="minDate" required /></label>
-          <label>Time<input v-model="details.time" type="time" min="11:00" max="22:00" required /></label>
+          <label>Fecha<input v-model="details.date" type="date" :min="minDate" required /></label>
+          <label>Hora<input v-model="details.time" type="time" min="11:00" max="22:00" required /></label>
         </div>
-        <label>Number of guests
+        <label>Número de comensales
           <select v-model="details.guests">
-            <option v-for="count in 12" :key="count" :value="String(count)">{{ count }} {{ count === 1 ? 'guest' : 'guests' }}</option>
+            <option v-for="count in 12" :key="count" :value="String(count)">{{ count }} {{ count === 1 ? 'comensal' : 'comensales' }}</option>
           </select>
         </label>
-        <label>Anything we should know? <span class="optional">Optional</span><textarea v-model.trim="details.notes" rows="3" placeholder="Occasion, dietary needs, or seating requests"></textarea></label>
-        <button class="reservation-submit" type="submit">SEND RESERVATION REQUEST</button>
+        <label>¿Hay algo más que debamos saber? <span class="optional">Opcional</span><textarea v-model.trim="details.notes" rows="3" placeholder="Celebración, necesidades alimentarias o preferencias de mesa"></textarea></label>
+        <button class="reservation-submit" type="submit">ENVIAR SOLICITUD DE RESERVA</button>
       </form>
-      <p class="reservation-footnote">Your email app will open with your request addressed to Chasca. Your table is not confirmed until we reply.</p>
-      <a class="reservation-back" href="/#home">← BACK TO CHASCA</a>
+      <p class="reservation-footnote">Se abrirá tu aplicación de correo con la solicitud dirigida a Chasca. La reserva no estará confirmada hasta que te respondamos.</p>
+      <a class="reservation-back" href="/#home">← VOLVER A CHASCA</a>
     </section>
   </main>
 </template>

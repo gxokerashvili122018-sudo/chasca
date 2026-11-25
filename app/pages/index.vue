@@ -1,11 +1,11 @@
 <script setup lang="ts">
 const gallery = [
-  { image: 'photo-1476224203421-9ac39bcb3327', alt: 'A freshly prepared dish with greens' },
-  { image: 'photo-1555939594-58d7cb561ad1', alt: 'A colorful spread ready to share' },
-  { image: 'photo-1547592180-85f173990554', alt: 'A bright garden lunch' },
-  { image: 'photo-1414235077428-338989a2e8c0', alt: 'Dinner served at the restaurant' },
-  { image: 'photo-1517248135467-4c7edcad34c4', alt: 'A warm and welcoming dining room' },
-  { image: 'photo-1559339352-11d035aa65de', alt: 'Friends enjoying a meal together' },
+  { image: 'photo-1476224203421-9ac39bcb3327', alt: 'Un plato recién preparado con verduras frescas' },
+  { image: 'photo-1555939594-58d7cb561ad1', alt: 'Una mesa llena de platos para compartir' },
+  { image: 'photo-1547592180-85f173990554', alt: 'Un almuerzo luminoso en el jardín' },
+  { image: 'photo-1414235077428-338989a2e8c0', alt: 'Una cena servida en el restaurante' },
+  { image: 'photo-1517248135467-4c7edcad34c4', alt: 'Un comedor cálido y acogedor' },
+  { image: 'photo-1559339352-11d035aa65de', alt: 'Amigos disfrutando de una comida juntos' },
 ]
 const photo = (id: string, width = 1000) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=85`
 </script>
@@ -15,69 +15,69 @@ const photo = (id: string, width = 1000) => `https://images.unsplash.com/${id}?a
     <div class="opening-stage">
     <section id="home" class="hero">
       <div class="hero-shade"></div>
-      <ChascaHeader overlay show-on-story />
+      <ChascaHeader overlay />
       <div class="hero-copy">
-        <p class="script welcome-script">A little taste of nature</p>
+        <p class="script welcome-script">Un toque de naturaleza</p>
         <h1>CHASCA</h1>
-        <div class="divider"><span></span><b>RESERVE A TABLE</b><span></span></div>
-        <a class="button" href="/demo-contact">BOOK NOW</a>
+        <div class="divider"><span></span><b>RESERVA TU MESA</b><span></span></div>
+        <a class="button" href="/demo-contact">RESERVAR</a>
       </div>
-      <a href="#story" class="scroll-cue" aria-label="Scroll to our story">⌄</a>
+      <a href="#story" class="scroll-cue" aria-label="Desplázate para conocer nuestra historia">⌄</a>
     </section>
 
     <section id="story" class="story section-wrap">
       <div class="story-copy">
-        <p class="script">A place to gather</p>
-        <h2>OUR STORY</h2>
+        <p class="script">Un lugar para reunirse</p>
+        <h2>NUESTRA HISTORIA</h2>
         <span class="flourish">✳</span>
-        <p>Chasca is nestled in the one-hectare Ginger Garden of the Singapore Botanic Gardens, where more than 250 species of ginger flourish among stunning foliage and colourful flowers.</p>
-        <p>Since opening in 2001, our glass-walled dining room has brought the garden indoors. Come for a leisurely lunch, a special dinner, or simply a moment surrounded by the quiet beauty of nature.</p>
-        <a class="text-link" href="#visit">A LITTLE MORE ABOUT US <span>↗</span></a>
+        <p>Chasca se encuentra en el jardín de jengibre de los Jardines Botánicos de Singapur, donde más de 250 especies crecen entre una vegetación exuberante y flores de muchos colores.</p>
+        <p>Desde 2001, nuestro comedor acristalado acerca el jardín a la mesa. Ven a disfrutar de un almuerzo tranquilo, una cena especial o un momento rodeado de la belleza serena de la naturaleza.</p>
+        <a class="text-link" href="#visit">DESCUBRE MÁS SOBRE NOSOTROS <span>↗</span></a>
       </div>
       <div class="story-images">
-        <img :src="photo('photo-1414235077428-338989a2e8c0', 1100)" alt="The Chasca dining room among lush greenery" />
-        <img :src="photo('photo-1547592180-85f173990554', 1100)" alt="A seasonal dish made with fresh ingredients" />
+        <img :src="photo('photo-1414235077428-338989a2e8c0', 1100)" alt="El comedor de Chasca rodeado de vegetación" />
+        <img :src="photo('photo-1547592180-85f173990554', 1100)" alt="Un plato de temporada elaborado con ingredientes frescos" />
       </div>
     </section>
     </div>
 
     <section id="menu" class="menu-note">
-      <p class="script">From our garden to your table</p><h2>GOOD FOOD, GOOD COMPANY</h2>
-      <p>Seasonal ingredients, thoughtful cooking, and a little ginger in everything we do.</p>
-      <a class="button dark-button" href="mailto:hello@thehalia.com?subject=Chasca%20menu">EXPLORE OUR MENU</a>
+      <p class="script">De nuestro huerto a tu mesa</p><h2>BUENA COMIDA, BUENA COMPAÑÍA</h2>
+      <p>Ingredientes de temporada, cocina cuidada y un toque de jengibre en todo lo que hacemos.</p>
+      <a class="button dark-button" href="mailto:chasca.jadraque.demo@gmail.com?subject=Carta%20de%20Chasca">DESCUBRE NUESTRA CARTA</a>
     </section>
 
     <section id="happenings" class="happenings">
-      <p class="script">Follow the good things</p><h2>INSTAGRAM HAPPENINGS</h2>
+      <p class="script">Sigue las novedades</p><h2>NOVEDADES EN INSTAGRAM</h2>
       <div class="gallery"><a v-for="(item, index) in gallery" :key="item.image" href="#visit" :aria-label="item.alt"><img :src="photo(item.image, 500)" :alt="item.alt" /><span v-if="index === 2">◎</span></a></div>
-      <a class="text-link insta-link" href="https://www.instagram.com/" target="_blank" rel="noreferrer">FOLLOW ALONG ON INSTAGRAM <span>↗</span></a>
+      <a class="text-link insta-link" href="https://www.instagram.com/" target="_blank" rel="noreferrer">SÍGUENOS EN INSTAGRAM <span>↗</span></a>
     </section>
 
     <section id="home-location" class="home-location">
       <div class="home-location-copy">
-        <p class="script">Come find us</p>
+        <p class="script">Ven a vernos</p>
         <h2>CHASCA RESTAURANTE</h2>
         <p class="home-location-address"><svg class="location-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-7.2 8-13a8 8 0 1 0-16 0c0 5.8 8 13 8 13Z"/><circle cx="12" cy="9" r="3"/></svg><span>C. Mayor Alta, 2<br />19240 Jadraque, Guadalajara</span></p>
-        <a class="button dark-button" href="https://www.google.com/maps/search/?api=1&amp;query=CHASCA+RESTAURANTE%2C+C.+Mayor+Alta%2C+2%2C+19240+Jadraque%2C+Guadalajara" target="_blank" rel="noreferrer">GET DIRECTIONS</a>
+        <a class="button dark-button" href="https://www.google.com/maps/search/?api=1&amp;query=CHASCA+RESTAURANTE%2C+C.+Mayor+Alta%2C+2%2C+19240+Jadraque%2C+Guadalajara" target="_blank" rel="noreferrer">CÓMO LLEGAR</a>
       </div>
       <div class="home-location-map">
-        <iframe title="Map showing Chasca Restaurante in Jadraque, Guadalajara" src="https://maps.google.com/maps?q=CHASCA%20RESTAURANTE%2C%20C.%20Mayor%20Alta%2C%202%2C%2019240%20Jadraque%2C%20Guadalajara&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe title="Mapa de Chasca Restaurante en Jadraque, Guadalajara" src="https://maps.google.com/maps?q=CHASCA%20RESTAURANTE%2C%20C.%20Mayor%20Alta%2C%202%2C%2019240%20Jadraque%2C%20Guadalajara&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
 
     <section id="home-contact" class="home-contact">
       <div class="home-contact-info">
-        <p class="script">We would love to hear from you</p>
-        <h2>CONTACT CHASCA</h2>
+        <p class="script">Nos encantará saber de ti</p>
+        <h2>CONTACTA CON CHASCA</h2>
         <div class="home-contact-items">
-          <p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h3l2 5-2 1.5a15 15 0 0 0 4.5 4.5L16 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 5 5a2 2 0 0 1 2-2Z"/></svg><span><small>PHONE · DEMO NUMBER</small><strong>+34 000 731 428</strong></span></p>
-          <p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L4 20l1.1-3.2A8.5 8.5 0 1 1 20 11.5Z"/><path d="M9 8.5c.3 2.6 2 4.3 4.5 5"/></svg><span><small>WHATSAPP · DEMO NUMBER</small><strong>+34 000 284 619</strong></span></p>
-          <p><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg><span><small>EMAIL · DEMO ADDRESS</small><strong>chasca.jadraque.demo@gmail.com</strong></span></p>
+          <p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h3l2 5-2 1.5a15 15 0 0 0 4.5 4.5L16 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 5 5a2 2 0 0 1 2-2Z"/></svg><span><small>TELÉFONO · NÚMERO DE PRUEBA</small><strong>+34 000 731 428</strong></span></p>
+          <p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L4 20l1.1-3.2A8.5 8.5 0 1 1 20 11.5Z"/><path d="M9 8.5c.3 2.6 2 4.3 4.5 5"/></svg><span><small>WHATSAPP · NÚMERO DE PRUEBA</small><strong>+34 000 284 619</strong></span></p>
+          <p><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg><span><small>CORREO · DIRECCIÓN DE PRUEBA</small><strong>chasca.jadraque.demo@gmail.com</strong></span></p>
         </div>
       </div>
       <div class="home-contact-social">
-        <p class="script">Follow along</p>
-        <h2>FIND US ONLINE</h2>
+        <p class="script">Síguenos</p>
+        <h2>ENCUÉNTRANOS EN REDES</h2>
         <div class="home-social-links">
           <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="social-dot" cx="17.5" cy="6.5" r="1"/></svg><span>INSTAGRAM</span></a>
           <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h3l.5-4H14V7c0-1.2.4-2 2-2h2V1.4C17.3 1.2 16.3 1 15 1c-3.2 0-5 1.9-5 5.4V9H7v4h3v8z"/></svg><span>FACEBOOK</span></a>
@@ -86,8 +86,8 @@ const photo = (id: string, width = 1000) => `https://images.unsplash.com/${id}?a
     </section>
 
     <footer id="visit">
-      <div class="footer-top"><p>COME FIND US IN THE GARDEN</p><div class="footer-social"><a href="https://www.instagram.com/" aria-label="Instagram">◎</a><a href="mailto:hello@thehalia.com" aria-label="Email">✉</a></div><a class="back-top" href="#home" aria-label="Back to top">⌃</a></div>
-      <div class="footer-bottom"><p>Chasca Restaurante · C. Mayor Alta, 2, 19240 Jadraque, Guadalajara</p><div class="footer-links"><a href="#happenings">ARTICLES</a><i>•</i><a href="#home-location">LOCATION</a><i>•</i><a href="#home-contact">CONTACT</a></div><small>Thoughtfully made, with a little help from nature.</small></div>
+      <div class="footer-top"><p>VEN A VERNOS</p><div class="footer-social"><a href="https://www.instagram.com/" aria-label="Instagram">◎</a><a href="mailto:chasca.jadraque.demo@gmail.com" aria-label="Correo electrónico">✉</a></div><a class="back-top" href="#home" aria-label="Volver arriba">⌃</a></div>
+      <div class="footer-bottom"><p>Chasca Restaurante · C. Mayor Alta, 2, 19240 Jadraque, Guadalajara</p><div class="footer-links"><a href="#happenings">ARTÍCULOS</a><i>•</i><a href="#home-location">UBICACIÓN</a><i>•</i><a href="#home-contact">CONTACTO</a></div><small>Hecho con cariño y un toque de naturaleza.</small></div>
     </footer>
   </main>
 </template>

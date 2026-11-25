@@ -1,48 +1,36 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { ref } from 'vue'
 
-const props = defineProps<{ overlay?: boolean; showOnStory?: boolean }>()
-const storyVisible = ref(false)
-let storyElement: Element | null = null
-
-function updateStoryVisibility() {
-  if (!storyElement) return
-  const storyTop = storyElement.getBoundingClientRect().top + window.scrollY
-  storyVisible.value = window.scrollY >= storyTop - window.innerHeight * 0.85
-}
-
-onMounted(() => {
-  if (!props.showOnStory) return
-  storyElement = document.querySelector('#story')
-  if (!storyElement) return
-  updateStoryVisibility()
-  window.addEventListener('scroll', updateStoryVisibility, { passive: true })
-})
-
-onBeforeUnmount(() => window.removeEventListener('scroll', updateStoryVisibility))
+defineProps<{ overlay?: boolean }>()
+const menuOpen = ref(false)
 </script>
 
 <template>
   <header class="chasca-header" :class="{ 'chasca-header-overlay': overlay }">
-    <a class="chasca-wordmark" href="/#home" aria-label="Chasca home">
+    <a class="chasca-wordmark" href="/#home" aria-label="Inicio de Chasca">
       <img src="/chasca-flame.png" alt="" />
       <span>chasca</span><i aria-hidden="true">✳</i>
     </a>
-    <nav aria-label="Main navigation">
-      <a href="/#story">OUR STORY</a><a href="/menu">MENU</a><a href="/#home-location">LOCATION</a><a href="/#happenings">EVENTS</a><a href="/#home-contact">CONTACTS</a>
+    <nav aria-label="Navegación principal">
+      <a href="/#story">NUESTRA HISTORIA</a><a href="/menu">CARTA</a><a href="/#home-location">UBICACIÓN</a><a href="/#happenings">EVENTOS</a><a href="/#home-contact">CONTACTO</a>
     </nav>
-    <div class="chasca-social"><a href="https://www.instagram.com/" aria-label="Instagram">◎</a><a href="/#home-contact" aria-label="Contact">✉</a></div>
+    <div class="chasca-social"><a href="https://www.instagram.com/" aria-label="Instagram">◎</a><a href="/#home-contact" aria-label="Contacto">✉</a></div>
   </header>
   <Teleport to="body">
-    <a v-if="showOnStory && storyVisible" class="chasca-mobile-menu" href="/demo-contact" aria-label="Contact Chasca">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M6 3.75h10.5A2.5 2.5 0 0 1 19 6.25v14H8.5A2.5 2.5 0 0 1 6 17.75z" />
-        <path d="M6 17.75a2.5 2.5 0 0 1 2.5-2.5H19M9.5 8h6M9.5 11h6" />
-      </svg>
-    </a>
+    <button class="chasca-mobile-menu" type="button" :aria-expanded="menuOpen" aria-controls="chasca-mobile-panel" :aria-label="menuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'" @click="menuOpen = !menuOpen">
+      <span></span><span></span><span></span>
+    </button>
+    <nav v-if="menuOpen" id="chasca-mobile-panel" class="chasca-mobile-panel" aria-label="Navegación móvil">
+      <a href="/#story" @click="menuOpen = false">NUESTRA HISTORIA</a>
+      <a href="/menu" @click="menuOpen = false">CARTA</a>
+      <a href="/#home-location" @click="menuOpen = false">UBICACIÓN</a>
+      <a href="/#happenings" @click="menuOpen = false">EVENTOS</a>
+      <a href="/#home-contact" @click="menuOpen = false">CONTACTO</a>
+      <a class="mobile-contact-link" href="/demo-contact" @click="menuOpen = false">ENVIAR UN MENSAJE</a>
+    </nav>
   </Teleport>
 </template>
 
 <style>
-.chasca-header{height:88px;padding:0 5.5%;display:flex;align-items:center;justify-content:space-between;gap:24px;background:#171713;color:#fff;border-bottom:1px solid #ffffff30;font-family:'DM Sans',sans-serif}.chasca-header-overlay{background:transparent}.chasca-wordmark{display:flex;align-items:center;gap:9px;color:#fff;text-decoration:none;flex:none}.chasca-wordmark img{width:52px;height:52px;object-fit:contain}.chasca-wordmark span{font:italic 39px 'Playfair Display',serif;letter-spacing:2px}.chasca-wordmark i{font:12px 'DM Sans',sans-serif;color:#c2a46a;align-self:flex-start;margin:8px 0 0 -5px}.chasca-header nav{display:flex;align-items:center;gap:clamp(16px,2.4vw,38px)}.chasca-header nav a,.chasca-social a{color:#fff;text-decoration:none;font-size:10px;letter-spacing:.12em;font-weight:700;white-space:nowrap}.chasca-header nav a:hover,.chasca-social a:hover{color:#c5a872}.chasca-social{display:flex;align-items:center;gap:15px}.chasca-social a{font-size:18px;letter-spacing:0}.chasca-mobile-menu{display:none}@media(max-width:760px){.chasca-header{height:auto;min-height:74px;padding:10px 22px;flex-wrap:wrap;gap:8px}.chasca-wordmark img{width:42px;height:42px}.chasca-wordmark span{font-size:34px}.chasca-mobile-menu{display:flex;position:fixed;top:16px;right:18px;z-index:1000;width:44px;height:44px;align-items:center;justify-content:center;background:#171713;border:1px solid #b99b62;border-radius:50%;color:#c8ab72;box-shadow:0 3px 12px #0003;text-decoration:none}.chasca-mobile-menu svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.chasca-header nav{order:3;width:100%;justify-content:space-between;gap:8px;padding:4px 0 8px}.chasca-header nav a{font-size:8px;letter-spacing:.08em}.chasca-social{display:none}}@media(max-width:440px){.chasca-header nav a{font-size:7px;letter-spacing:.04em}}
+.chasca-header{height:88px;padding:0 5.5%;display:flex;align-items:center;justify-content:space-between;gap:24px;background:#171713;color:#fff;border-bottom:1px solid #ffffff30;font-family:'DM Sans',sans-serif}.chasca-header-overlay{background:transparent}.chasca-wordmark{display:flex;align-items:center;gap:9px;color:#fff;text-decoration:none;flex:none}.chasca-wordmark img{width:52px;height:52px;object-fit:contain}.chasca-wordmark span{font:italic 39px 'Playfair Display',serif;letter-spacing:2px}.chasca-wordmark i{font:12px 'DM Sans',sans-serif;color:#c2a46a;align-self:flex-start;margin:8px 0 0 -5px}.chasca-header nav{display:flex;align-items:center;gap:clamp(16px,2.4vw,38px)}.chasca-header nav a,.chasca-social a{color:#fff;text-decoration:none;font-size:10px;letter-spacing:.12em;font-weight:700;white-space:nowrap}.chasca-header nav a:hover,.chasca-social a:hover{color:#c5a872}.chasca-social{display:flex;align-items:center;gap:15px}.chasca-social a{font-size:18px;letter-spacing:0}.chasca-mobile-menu,.chasca-mobile-panel{display:none}@media(max-width:760px){.chasca-header{height:auto;min-height:74px;padding:10px 22px;flex-wrap:wrap;gap:8px}.chasca-wordmark img{width:42px;height:42px}.chasca-wordmark span{font-size:34px}.chasca-header nav{display:none}.chasca-mobile-menu{display:flex;position:fixed;top:16px;right:18px;z-index:1002;width:44px;height:44px;align-items:center;justify-content:center;flex-direction:column;gap:5px;padding:0;background:#171713;border:1px solid #b99b62;border-radius:50%;color:#c8ab72;box-shadow:0 3px 12px #0003;cursor:pointer}.chasca-mobile-menu span{display:block;width:19px;height:2px;background:currentColor;transition:transform .2s,opacity .2s}.chasca-mobile-menu[aria-expanded=true] span:first-child{transform:translateY(7px) rotate(45deg)}.chasca-mobile-menu[aria-expanded=true] span:nth-child(2){opacity:0}.chasca-mobile-menu[aria-expanded=true] span:last-child{transform:translateY(-7px) rotate(-45deg)}.chasca-mobile-panel{display:flex;position:fixed;top:70px;right:18px;z-index:1001;width:min(280px,calc(100vw - 36px));padding:12px 0;flex-direction:column;background:#171713;border:1px solid #b99b6240;box-shadow:0 12px 32px #0004}.chasca-mobile-panel a{padding:14px 20px;color:#fff;text-decoration:none;font:700 10px 'DM Sans',sans-serif;letter-spacing:.14em}.chasca-mobile-panel a:hover{color:#c8ab72;background:#ffffff0a}.chasca-mobile-panel .mobile-contact-link{margin:8px 12px 4px;background:#b99b62;color:#171713;text-align:center}.chasca-social{display:none}}@media(max-width:440px){.chasca-header nav a{font-size:7px;letter-spacing:.04em}}
 </style>

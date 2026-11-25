@@ -16,7 +16,7 @@ async function submitForm() {
     form.email = ''
     form.message = ''
   } catch {
-    errorMessage.value = 'Your message could not be sent. Please try again later.'
+    errorMessage.value = 'No se ha podido enviar tu mensaje. Inténtalo de nuevo más tarde.'
   } finally {
     sending.value = false
   }
@@ -28,26 +28,26 @@ async function submitForm() {
     <ChascaHeader />
     <div class="demo-contact-layout">
       <section class="demo-card">
-        <a class="demo-back" href="/#home" aria-label="Back to the main page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0 7-7m-7 7 7 7" /></svg><span>BACK TO HOME</span></a>
-        <p class="demo-kicker">A little note</p>
-        <h1>CONTACT US</h1>
-        <p class="demo-intro">Send us a message and our team will be in touch.</p>
+        <a class="demo-back" href="/#home" aria-label="Volver a la página principal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0 7-7m-7 7 7 7" /></svg><span>VOLVER AL INICIO</span></a>
+        <p class="demo-kicker">Una nota</p>
+        <h1>CONTACTA CON NOSOTROS</h1>
+        <p class="demo-intro">Envíanos un mensaje y nuestro equipo se pondrá en contacto contigo.</p>
         <form class="demo-form" @submit.prevent="submitForm">
-          <label>Your name<input v-model.trim="form.name" name="name" autocomplete="name" maxlength="100" required /></label>
-          <label>Your email<input v-model.trim="form.email" name="email" type="email" autocomplete="email" maxlength="254" required /></label>
-          <label>Message<textarea v-model.trim="form.message" name="message" rows="6" maxlength="5000" required></textarea></label>
-          <button type="submit" :disabled="sending">{{ sending ? 'SENDING…' : 'SEND MESSAGE' }}</button>
-          <p v-if="sent" class="form-status success" role="status">Thanks! Your message has been sent.</p>
+          <label>Tu nombre<input v-model.trim="form.name" name="name" autocomplete="name" maxlength="100" required /></label>
+          <label>Tu correo electrónico<input v-model.trim="form.email" name="email" type="email" autocomplete="email" maxlength="254" required /></label>
+          <label>Mensaje<textarea v-model.trim="form.message" name="message" rows="6" maxlength="5000" required></textarea></label>
+          <button type="submit" :disabled="sending">{{ sending ? 'ENVIANDO…' : 'ENVIAR MENSAJE' }}</button>
+          <p v-if="sent" class="form-status success" role="status">¡Gracias! Hemos enviado tu mensaje.</p>
           <p v-if="errorMessage" class="form-status error" role="alert">{{ errorMessage }}</p>
         </form>
       </section>
       <aside class="demo-contact-panel">
-        <p class="panel-kicker">Get in touch</p>
-        <h2>WE’RE HERE TO HELP</h2>
-        <p class="panel-intro">Call or message us using the details below.</p>
+        <p class="panel-kicker">Hablemos</p>
+        <h2>ESTAMOS PARA AYUDARTE</h2>
+        <p class="panel-intro">Llámanos o escríbenos con los datos de contacto.</p>
         <div class="demo-contact-methods">
-          <div class="demo-contact-method"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h3l2 5-2 1.5a15 15 0 0 0 4.5 4.5L16 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 5 5a2 2 0 0 1 2-2Z"/></svg><span><small>PHONE · DEMO NUMBER</small><strong>+34 000 731 428</strong></span></div>
-          <div class="demo-contact-method"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L4 20l1.1-3.2A8.5 8.5 0 1 1 20 11.5Z"/><path d="M9 8.5c.3 2.6 2 4.3 4.5 5"/></svg><span><small>WHATSAPP · DEMO NUMBER</small><strong>+34 000 284 619</strong></span></div>
+          <div class="demo-contact-method"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h3l2 5-2 1.5a15 15 0 0 0 4.5 4.5L16 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 5 5a2 2 0 0 1 2-2Z"/></svg><span><small>TELÉFONO · NÚMERO DE PRUEBA</small><strong>+34 000 731 428</strong></span></div>
+          <div class="demo-contact-method"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L4 20l1.1-3.2A8.5 8.5 0 1 1 20 11.5Z"/><path d="M9 8.5c.3 2.6 2 4.3 4.5 5"/></svg><span><small>WHATSAPP · NÚMERO DE PRUEBA</small><strong>+34 000 284 619</strong></span></div>
         </div>
       </aside>
     </div>
