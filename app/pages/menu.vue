@@ -1,15 +1,6 @@
 <template>
   <main class="menu-page">
-    <header class="menu-header">
-      <a class="menu-wordmark" href="/#home">chasca<span>✳</span></a>
-      <nav aria-label="Main navigation">
-        <a href="/#story">OUR STORY</a>
-        <a href="/menu" aria-current="page">MENU</a>
-        <a href="/#visit">DIRECTIONS</a>
-        <a href="/#happenings">EVENTS</a>
-      </nav>
-      <a class="menu-book" href="/reservation">BOOK A TABLE</a>
-    </header>
+    <ChascaHeader />
 
     <section class="menu-hero">
       <p class="menu-script">From our garden to your table</p>

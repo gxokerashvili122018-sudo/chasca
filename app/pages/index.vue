@@ -15,13 +15,7 @@ const photo = (id: string, width = 1000) => `https://images.unsplash.com/${id}?a
     <div class="opening-stage">
     <section id="home" class="hero">
       <div class="hero-shade"></div>
-      <header class="site-header">
-        <a class="wordmark" href="#home" aria-label="Chasca home"><img class="wordmark-logo" src="/chasca-flame.png" alt="" />chasca<span>✳</span></a>
-        <nav aria-label="Main navigation">
-          <a href="#story">OUR STORY</a><a href="/menu">MENU <span class="down">⌄</span></a><a href="#visit">DIRECTIONS</a><a href="#happenings">EVENTS</a><a href="#visit">VIRTUAL TOUR</a>
-        </nav>
-        <div class="header-social"><a href="#happenings" aria-label="Instagram">◎</a><a href="#visit" aria-label="Email">✉</a></div>
-      </header>
+      <ChascaHeader overlay show-on-story />
       <div class="hero-copy">
         <p class="script welcome-script">A little taste of nature</p>
         <h1>CHASCA</h1>
@@ -59,9 +53,41 @@ const photo = (id: string, width = 1000) => `https://images.unsplash.com/${id}?a
       <a class="text-link insta-link" href="https://www.instagram.com/" target="_blank" rel="noreferrer">FOLLOW ALONG ON INSTAGRAM <span>↗</span></a>
     </section>
 
+    <section id="home-location" class="home-location">
+      <div class="home-location-copy">
+        <p class="script">Come find us</p>
+        <h2>CHASCA RESTAURANTE</h2>
+        <p class="home-location-address"><svg class="location-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-7.2 8-13a8 8 0 1 0-16 0c0 5.8 8 13 8 13Z"/><circle cx="12" cy="9" r="3"/></svg><span>C. Mayor Alta, 2<br />19240 Jadraque, Guadalajara</span></p>
+        <a class="button dark-button" href="https://www.google.com/maps/search/?api=1&amp;query=CHASCA+RESTAURANTE%2C+C.+Mayor+Alta%2C+2%2C+19240+Jadraque%2C+Guadalajara" target="_blank" rel="noreferrer">GET DIRECTIONS</a>
+      </div>
+      <div class="home-location-map">
+        <iframe title="Map showing Chasca Restaurante in Jadraque, Guadalajara" src="https://maps.google.com/maps?q=CHASCA%20RESTAURANTE%2C%20C.%20Mayor%20Alta%2C%202%2C%2019240%20Jadraque%2C%20Guadalajara&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+
+    <section id="home-contact" class="home-contact">
+      <div class="home-contact-info">
+        <p class="script">We would love to hear from you</p>
+        <h2>CONTACT CHASCA</h2>
+        <div class="home-contact-items">
+          <p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h3l2 5-2 1.5a15 15 0 0 0 4.5 4.5L16 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 5 5a2 2 0 0 1 2-2Z"/></svg><span><small>PHONE · DEMO NUMBER</small><strong>+34 000 731 428</strong></span></p>
+          <p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.6 7.4L4 20l1.1-3.2A8.5 8.5 0 1 1 20 11.5Z"/><path d="M9 8.5c.3 2.6 2 4.3 4.5 5"/></svg><span><small>WHATSAPP · DEMO NUMBER</small><strong>+34 000 284 619</strong></span></p>
+          <p><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg><span><small>EMAIL · DEMO ADDRESS</small><strong>chasca.jadraque.demo@gmail.com</strong></span></p>
+        </div>
+      </div>
+      <div class="home-contact-social">
+        <p class="script">Follow along</p>
+        <h2>FIND US ONLINE</h2>
+        <div class="home-social-links">
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="social-dot" cx="17.5" cy="6.5" r="1"/></svg><span>INSTAGRAM</span></a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h3l.5-4H14V7c0-1.2.4-2 2-2h2V1.4C17.3 1.2 16.3 1 15 1c-3.2 0-5 1.9-5 5.4V9H7v4h3v8z"/></svg><span>FACEBOOK</span></a>
+        </div>
+      </div>
+    </section>
+
     <footer id="visit">
       <div class="footer-top"><p>COME FIND US IN THE GARDEN</p><div class="footer-social"><a href="https://www.instagram.com/" aria-label="Instagram">◎</a><a href="mailto:hello@thehalia.com" aria-label="Email">✉</a></div><a class="back-top" href="#home" aria-label="Back to top">⌃</a></div>
-      <div class="footer-bottom"><p>Chasca Restaurant · 1 Cluny Road, Ginger Garden, Singapore Botanic Gardens, Singapore 259569 · <a href="tel:+6568441148">Tel: (65) 6844 1148</a></p><div class="footer-links"><a href="#happenings">ARTICLES</a><i>•</i><a href="#visit">CAREERS</a><i>•</i><a href="#visit">CONTACT</a></div><small>Thoughtfully made, with a little help from nature.</small></div>
+      <div class="footer-bottom"><p>Chasca Restaurante · C. Mayor Alta, 2, 19240 Jadraque, Guadalajara</p><div class="footer-links"><a href="#happenings">ARTICLES</a><i>•</i><a href="#home-location">LOCATION</a><i>•</i><a href="#home-contact">CONTACT</a></div><small>Thoughtfully made, with a little help from nature.</small></div>
     </footer>
   </main>
 </template>
@@ -74,4 +100,12 @@ const photo = (id: string, width = 1000) => `https://images.unsplash.com/${id}?a
 
 <style>
 .wordmark{display:flex;align-items:center;gap:9px}.wordmark-logo{width:52px;height:52px;object-fit:contain}
+</style>
+
+<style>
+.home-location{display:grid;grid-template-columns:.85fr 1.15fr;gap:7%;align-items:center;padding:82px 5.5%;background:#f7f5f0}.home-location-copy{text-align:center}.home-location-copy .script{font-size:clamp(43px,5vw,65px)}.home-location-copy h2{font-size:clamp(24px,3vw,38px);letter-spacing:.16em;margin:0 0 22px}.home-location-address{display:flex;align-items:flex-start;justify-content:center;gap:8px;font-size:19px;line-height:1.8;color:#4c4b48;margin:0 0 25px}.location-pin{width:27px;height:27px;flex:none;margin-top:3px;fill:#b99b62;stroke:#b99b62;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}.location-pin circle{fill:#f7f5f0;stroke:none}.home-location-map{height:380px;box-shadow:0 8px 24px #0002}.home-location-map iframe{display:block;width:100%;height:100%;border:0}@media(max-width:760px){.home-location{grid-template-columns:1fr;gap:32px;padding:65px 22px}.home-location-map{height:340px}}@media(max-width:440px){.home-location-map{height:290px}}
+</style>
+
+<style>
+.home-contact{display:grid;grid-template-columns:1.15fr .85fr;gap:8%;align-items:center;padding:58px 8%;background:#fff}.home-contact-info,.home-contact-social{text-align:center}.home-contact .script{font-size:clamp(36px,4.5vw,58px)}.home-contact h2{font-size:clamp(21px,2.5vw,31px);letter-spacing:.16em;margin:0 0 18px}.home-contact-items{display:grid;gap:11px;width:max-content;max-width:100%;margin:auto;text-align:left}.home-contact-items p{display:flex;align-items:center;gap:12px;margin:0}.home-contact-items p>svg{width:27px;height:27px;flex:none;fill:none;stroke:#b99b62;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.home-contact-items span{display:grid;gap:3px}.home-contact-items small{font-size:10px;letter-spacing:.12em;color:#777}.home-contact-items strong{font-size:18px;font-weight:600;color:#191919}.home-social-links{display:grid;grid-template-columns:1fr 1fr;gap:16px}.home-social-links a{display:flex;flex-direction:column;align-items:center;gap:12px;padding:16px 12px;border:1px solid #e8e2d7;color:#191919;text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.12em;transition:background .2s,color .2s}.home-social-links a:hover{background:#171717;color:#c8ab72}.home-social-links svg{width:34px;height:34px;fill:none;stroke:#b99b62;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.home-social-links a:last-child svg{fill:#b99b62;stroke:none}.home-social-links .social-dot{fill:#b99b62;stroke:none}@media(max-width:760px){.home-contact{grid-template-columns:1fr;gap:34px;padding:48px 22px}.home-contact-items{width:100%;max-width:350px}.home-social-links{max-width:380px;margin:auto}}
 </style>
